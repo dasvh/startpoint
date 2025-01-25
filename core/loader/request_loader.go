@@ -2,6 +2,7 @@ package loader
 
 import (
 	"fmt"
+	"github.com/goccy/go-yaml"
 	"github.com/susiteemu/startpoint/core/model"
 	"io/fs"
 	"os"
@@ -9,7 +10,6 @@ import (
 	"strings"
 
 	"github.com/rs/zerolog/log"
-	"gopkg.in/yaml.v3"
 )
 
 const (

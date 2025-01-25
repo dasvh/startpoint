@@ -3,8 +3,6 @@ package model
 import (
 	"errors"
 	"strings"
-
-	"gopkg.in/yaml.v3"
 )
 
 const CONTENT_TYPE_YAML = "yaml"
@@ -35,12 +33,16 @@ type Headers map[string]HeaderValues
 	return nil
 }*/
 
-func (headerValues *HeaderValues) UnmarshalYAML(node *yaml.Node) error {
-	value := node.Value
+func (headerValues *HeaderValues) UnmarshalYAML(unmarshal func(interface{}) error) error {
+	var value string
+	if err := unmarshal(&value); err != nil {
+		return err
+	}
 	sl := strings.Split(value, ",")
 	*headerValues = sl
 	return nil
 }
+
 func (headerValues HeaderValues) MarshalYAML() (interface{}, error) {
 	return strings.Join(headerValues, ","), nil
 }
@@ -48,6 +50,7 @@ func (headerValues HeaderValues) MarshalYAML() (interface{}, error) {
 func (headerValues *HeaderValues) ToString() string {
 	return strings.Join(*headerValues, ",")
 }
+
 func (headers *Headers) FromMap(m map[string][]string) Headers {
 	responseHeaders := make(map[string]HeaderValues)
 	for k, v := range m {

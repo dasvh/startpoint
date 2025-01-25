@@ -7,9 +7,9 @@ import (
 	"os"
 
 	"github.com/charmbracelet/lipgloss"
+	"github.com/goccy/go-yaml"
 	"github.com/rs/zerolog/log"
 	"github.com/spf13/viper"
-	"gopkg.in/yaml.v3"
 )
 
 //go:embed themes/*.yaml

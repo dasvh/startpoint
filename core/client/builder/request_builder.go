@@ -10,8 +10,8 @@ import (
 	"github.com/susiteemu/startpoint/core/templating/templateng"
 	"github.com/susiteemu/startpoint/core/tools/conv"
 
+	"github.com/goccy/go-yaml"
 	"github.com/rs/zerolog/log"
-	"gopkg.in/yaml.v3"
 )
 
 var builders = []func(requestMold *model.RequestMold, previousResponse *model.Response, profile model.Profile) (model.Request, bool, error){

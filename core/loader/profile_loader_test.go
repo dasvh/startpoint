@@ -1,7 +1,6 @@
 package loader
 
 import (
-	"fmt"
 	"github.com/susiteemu/startpoint/core/model"
 	"testing"
 

@@ -2,6 +2,7 @@ package model
 
 import (
 	"fmt"
+	"github.com/goccy/go-yaml"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -10,7 +11,6 @@ import (
 	"unicode"
 
 	"github.com/rs/zerolog/log"
-	"gopkg.in/yaml.v3"
 )
 
 var (
